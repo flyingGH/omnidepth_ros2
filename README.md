@@ -5,6 +5,7 @@ An AI Framework for class-aware surround BEV 3D occupancy map with multi-view mo
 [Mdel request form](https://forms.gle/2JLW8mkCmrBkLmZw8)
 
 |            Input      |            Output           |
+|:--------------------------------------:|:--------------------------------------:|
 |Multi-view monocular Images and Intrinsics/ Extrinsics | 3D Class-aware dense point cloud in BEV space | 
 |:--------------------------------------:|:--------------------------------------:|
 |
