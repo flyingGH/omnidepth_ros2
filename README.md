@@ -1,3 +1,5 @@
+
+https://github.com/synapsemobility/omniViewDepth/assets/163760520/e0a963e5-b14b-4cdb-aafd-915e66377824
 # omniViewDepth
 An AI Framework for class-aware surround BEV 3D occupancy map with multi-view monocular cameras.
 
@@ -7,6 +9,4 @@ An AI Framework for class-aware surround BEV 3D occupancy map with multi-view mo
 |:--------------------------------------:|:--------------------------------------:|
 | 
 
-https://github.com/synapsemobility/omniViewDepth/assets/163760520/de953aca-4e0d-47b3-b89c-95c72b7f861c
-
- |  |
+Uploading Screencast from 06-12-2024 06_05_30 PM-1 (online-video-cutter.com).mp4… |  |
