@@ -19,3 +19,5 @@ https://github.com/synapsemobility/omniViewDepth/assets/163760520/8ecd124f-6263-
 https://github.com/synapsemobility/omniViewDepth/assets/163760520/27a0a727-9182-43f5-8618-58bfcf3ee81d
 
 
+## License
+The OmmniViewDepth code is under a 2-clause BSD License for non-commercial usage.
