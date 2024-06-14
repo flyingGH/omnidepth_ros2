@@ -8,12 +8,10 @@ An AI Framework for class-aware surround BEV 3D occupancy map with multi-view mo
 ## Visualizations
 ### Input
 Multi-view monocular Images and Intrinsics/ Extrinsic Matrices 
-
+![scene](https://github.com/synapsemobility/omniViewDepth/assets/163760520/c8332d52-31ac-4aa6-ab8c-b21a2e9cf792)
 
 ### Output
-
-
-https://github.com/synapsemobility/omniViewDepth/assets/163760520/27a0a727-9182-43f5-8618-58bfcf3ee81d
+![OmniViewDepth](https://github.com/synapsemobility/omniViewDepth/assets/163760520/7a9fc687-e15d-4f4d-80a3-77e6a1e900ad)
 
 
 ## License
