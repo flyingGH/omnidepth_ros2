@@ -6,9 +6,11 @@ An AI Framework for class-aware surround BEV 3D occupancy map with multi-view mo
 * [Demo Video: OmniView for AMRs](https://www.youtube.com/watch?v=T_HIsUSDyoQ&ab_channel=SynapseMobility)
 
 ## Visualizations
-| Input | Output |
-| Multi-view monocular Images and Intrinsics/ Extrinsic Matrices | TODO | 
-| ![scene](https://github.com/synapsemobility/omniViewDepth/assets/163760520/c8332d52-31ac-4aa6-ab8c-b21a2e9cf792) | ![OmniViewDepth](https://github.com/synapsemobility/omniViewDepth/assets/163760520/7a9fc687-e15d-4f4d-80a3-77e6a1e900ad) | 
+
+|            Input           |            Outpu           |
+|:--------------------------------------:|:--------------------------------------:|
+| Multi-view monocular Images and Intrinsics/ Extrinsic Matrices | TODO |
+| ![scene](https://github.com/synapsemobility/omniViewDepth/assets/163760520/c8332d52-31ac-4aa6-ab8c-b21a2e9cf792) | ![OmniViewDepth](https://github.com/synapsemobility/omniViewDepth/assets/163760520/7a9fc687-e15d-4f4d-80a3-77e6a1e900ad) |
 
 
 ## License
