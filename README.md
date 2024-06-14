@@ -28,6 +28,9 @@ TODO
 | TODO | TODO |TODO | TODO | 
 
 ### Published Topics
+|            Topic Name           |            Topic Info           |     Description  | Visualization | 
+|:--------------------------------------:|:--------------------------------------:| :--------------------------------------:| :--------------------------------------:|
+| TODO | TODO |TODO | TODO | 
 
 ## License
 The OmmniViewDepth code is under a 2-clause BSD License for non-commercial usage.
