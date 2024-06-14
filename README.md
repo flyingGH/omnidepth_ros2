@@ -1,6 +1,6 @@
 
 # omniViewDepth
-An AI Framework for class-aware surround BEV 3D occupancy map with multi-view monocular cameras.
+An AI Framework for class-aware surround BEV 3D occupancy map with multi-view monocular cameras. It enables low-cost, precise, camera-only perception for autonomous mobile robots with surround-view cameras. 
 
 * [Mdel request form](https://forms.gle/2JLW8mkCmrBkLmZw8)
 * [Demo Video: OmniView for AMRs](https://www.youtube.com/watch?v=T_HIsUSDyoQ&ab_channel=SynapseMobility)
