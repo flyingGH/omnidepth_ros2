@@ -4,7 +4,7 @@ An AI Framework for class-aware surround BEV 3D occupancy map with multi-view mo
 Our service can be easily integrated into any AMR robotics framework (Currently supported: ROS2 Humble). 
 
 * [Model request form](https://forms.gle/2JLW8mkCmrBkLmZw8): Model is only available on request basis. We have a US-based small team, we can get back in 24 hours.
-* [Demo Video: omniDepth for AMRs](https://www.youtube.com/watch?v=T_HIsUSDyoQ&ab_channel=SynapseMobility)
+* ![Demo Video: omniDepth for AMRs](https://www.youtube.com/watch?v=T_HIsUSDyoQ&ab_channel=SynapseMobility)
 
 ## Visualizations
 For local reproduction, USD file created on [ISAAC 4.0](https://developer.nvidia.com/blog/supercharge-robotics-workflows-with-ai-and-simulation-using-nvidia-isaac-sim-4-0-and-nvidia-isaac-lab/) can be downloaded from [drive link](https://drive.google.com/file/d/1CKsHDYRw4J_wQ6_jgNjwoaswgUvqomCb/view?usp=drive_link).
