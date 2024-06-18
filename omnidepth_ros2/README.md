@@ -25,7 +25,7 @@ rviz2 -d src/omnidepth_ros2/rviz_omnidepth.rviz
 You may save this rviz file after adding any relevant topics that you desire.
 
 ## ISAAC Launch
-1. Download USD file from the drive link. 
+1. Download USD file from the [drive link](https://drive.google.com/file/d/1CKsHDYRw4J_wQ6_jgNjwoaswgUvqomCb/view?usp=drive_link). Note, when opening this USD file first time, it can take upto 5mins for ISAAC sim to launch this USD file.  
 2. Open ISAAC simulator open USD file. (It may take upto 1min if you are launching this USD file first time.)
 3. Play the animation using play button on the right.
 
