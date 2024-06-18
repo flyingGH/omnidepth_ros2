@@ -13,10 +13,10 @@ For local reproduction, USD file created on [ISAAC 4.0](https://developer.nvidia
 |:--------------------------------------:|:--------------------------------------:|:--------------------------------------:|
 |Camera views| Multi-view monocular Images and Intrinsics/ Extrinsic Matrices | Class-aware 3D dense point cloud from surround view cameras |
 | Four Surround-view cameras, covering 360 degree without overlap| ![scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene.gif)| ![OmniDepth](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/omniDepth.gif)|
-| Front view monocular camera | [Front scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_front.gif)| [Front point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_front.gif)|
-| Left view monocular camera | [Left scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_left.gif)| [Left point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_left.gif)|
-| Back view monocular camera | [Back scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_back.gif)| [Back point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_back.gif)|
-| Right view monocular camera | [Right scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_right.gif)| [Right point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_right.gif)|
+| Front view monocular camera | ![Front scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_front.gif) | ![Front point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_front.gif)|
+| Left view monocular camera | ![Left scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_left.gif) | ![Left point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_left.gif)|
+| Back view monocular camera | ![Back scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_back.gif) | ![Back point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_back.gif)|
+| Right view monocular camera | ![Right scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene_right.gif) | ![Right point cloud](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/pcl_right.gif)|
 
 ## Docker Installation
 We are handing out the docker file and the model on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs.
