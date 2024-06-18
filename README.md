@@ -9,10 +9,11 @@ Our service can be easily integrated into any AMR robotics framework (Currently 
 ## Visualizations
 For local reproduction, USD file created on [ISAAC 4.0](https://developer.nvidia.com/blog/supercharge-robotics-workflows-with-ai-and-simulation-using-nvidia-isaac-sim-4-0-and-nvidia-isaac-lab/) can be downloaded from [drive link](https://drive.google.com/file/d/1CKsHDYRw4J_wQ6_jgNjwoaswgUvqomCb/view?usp=drive_link).
 
-|            Input           |            Output           |
-|:--------------------------------------:|:--------------------------------------:|
-| Multi-view monocular Images and Intrinsics/ Extrinsic Matrices | Class-aware 3D dense point cloud from surround view cameras |
-| ![scene](https://github.com/synapsemobility/omniViewDepth/assets/163760520/c8332d52-31ac-4aa6-ab8c-b21a2e9cf792) | ![OmniViewDepth](https://github.com/synapsemobility/omniViewDepth/assets/163760520/7a9fc687-e15d-4f4d-80a3-77e6a1e900ad) |
+| Input Modality |            Input Visualization        |            Output Visualization           |
+|:--------------------------------------:|:--------------------------------------:|:--------------------------------------:|
+|Camera views| Multi-view monocular Images and Intrinsics/ Extrinsic Matrices | Class-aware 3D dense point cloud from surround view cameras |
+| Four Surround view cameras, covering 360 degree without overlap| ![scene](https://github.com/synapsemobility/omniViewDepth/assets/163760520/c8332d52-31ac-4aa6-ab8c-b21a2e9cf792) | ![OmniViewDepth](https://github.com/synapsemobility/omniViewDepth/assets/163760520/7a9fc687-e15d-4f4d-80a3-77e6a1e900ad) |
+|||||
 
 ## Docker Installation
 We are handing out the docker file and the model on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs.
