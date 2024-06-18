@@ -141,7 +141,7 @@ class VisionInferenceNode():
     def _read_params(self):
         self.logger.info("Reading parameters...")
         self.omnidepth_flag = self.ros_interface.read_one_parameters("OMNIDEPTH_FLAG", True)
-        self.cam_channel_name = self.ros_interface.read_one_parameters("CAM_CHANNEL_NAME")
+        self.cam_channel_name = self.ros_interface.read_one_parameters("CAM_CHANNEL_NAME", "front")
         
         if self.omnidepth_flag:
             self.omnidepth_weight_path = self.ros_interface.read_one_parameters("OMNIDEPTH_CKPT_FILE",
