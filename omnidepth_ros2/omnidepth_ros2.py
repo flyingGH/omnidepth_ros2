@@ -13,21 +13,6 @@ from typing import List, Tuple
 
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
 
-MONO3D_NAMES = ['car', 'truck', 'bus', 
-                'trailer', 'construction_vehicle',
-                'pedestrian', 'motorcycle', 'bicycle',
-                'traffic_cone', 'barrier']
-
-
-
-def normalize_image(image):
-    rgb_mean = np.array([0.485, 0.456, 0.406])
-    rgb_std  = np.array([0.229, 0.224, 0.225])
-    image = image.astype(np.float32)
-    image = image / 255.0
-    image = image - rgb_mean
-    image = image / rgb_std
-    return image
 
 
 class BaseInferenceThread(threading.Thread):
@@ -77,7 +62,7 @@ class BaseInferenceThread(threading.Thread):
         return self._output
 
 
-class Metric3DThread(BaseInferenceThread):
+class OmniDepthThread(BaseInferenceThread):
     def run(self):
         start_time = time.time()
         # Prepare input for model inference
@@ -93,7 +78,7 @@ class Metric3DThread(BaseInferenceThread):
         
         depth_image = depth_image[pad_info[0] : depth_image.shape[0] - pad_info[1], pad_info[2] : depth_image.shape[1] - pad_info[3]] # [H, W] -> [h, w]     
         self._output = depth_image, point_cloud
-        print(f"monodepth runtime: {time.time() - start_time}")
+        print(f"omnidepth runtime: {time.time() - start_time}")
 
     def prepare_input(self, rgb_image: np.ndarray)->Tuple[torch.Tensor, List[int]]:
         input_size = (616, 1064)
@@ -155,20 +140,20 @@ class VisionInferenceNode():
 
     def _read_params(self):
         self.logger.info("Reading parameters...")
-        self.monodepth_flag = self.ros_interface.read_one_parameters("MONODEPTH_FLAG", True)
+        self.omnidepth_flag = self.ros_interface.read_one_parameters("OMNIDEPTH_FLAG", True)
         self.cam_channel_name = self.ros_interface.read_one_parameters("CAM_CHANNEL_NAME")
         
-        if self.monodepth_flag:
-            self.monodepth_weight_path = self.ros_interface.read_one_parameters("MONODEPTH_CKPT_FILE",
-                                        "src/omnidepth_ros2/models/metric_3d.onnx")
-            self.monodepth_gpu_index   = int(self.ros_interface.read_one_parameters("MONODEPTH_GPU_INDEX", 0))
+        if self.omnidepth_flag:
+            self.omnidepth_weight_path = self.ros_interface.read_one_parameters("OMNIDEPTH_CKPT_FILE",
+                                        "src/omnidepth_ros2/models/omnidepth_v10.onnx")
+            self.omnidepth_gpu_index   = int(self.ros_interface.read_one_parameters("OMNIDEPTH_GPU_INDEX", 0))
         self.gpu_index = int(self.ros_interface.read_one_parameters("GPU", 0))
         
 
     def _init_model(self):
         self.logger.info("Initializing model...")
-        if self.monodepth_flag:
-            self.monodepth_thread = Metric3DThread(self.monodepth_weight_path, gpu_index=self.monodepth_gpu_index)
+        if self.omnidepth_flag:
+            self.omnidepth_thread = OmniDepthThread(self.omnidepth_weight_path, gpu_index=self.omnidepth_gpu_index)
         self.logger.info("Model Done")
     
     def _init_static_memory(self):
@@ -201,17 +186,16 @@ class VisionInferenceNode():
 
     def process_image(self, image:np.ndarray):        
         starting = time.time()
-        if self.monodepth_flag:
-            self.monodepth_thread.set_inputs(image, self.P.copy())
-            self.monodepth_thread.start()
+        if self.omnidepth_flag:
+            self.omnidepth_thread.set_inputs(image, self.P.copy())
+            self.omnidepth_thread.start()
 
-        depth = self.monodepth_thread.join() if self.monodepth_flag else None
+        depth = self.omnidepth_thread.join() if self.omnidepth_flag else None
 
         self.logger.info(f"Total runtime: {time.time() - starting}")
 
         # publish depth        
-        if self.monodepth_flag:
-
+        if self.omnidepth_flag:
             self.ros_interface.publish_image(depth[0], image_topic="depth_image", frame_id=self.frame_id)
                         
             rotated_pcl = depth[1]

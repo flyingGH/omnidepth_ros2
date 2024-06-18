@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="monodepth_flag" default="true"/>
-    <arg name="monodepth_ckpt_file" default="/home/apoorv/workspaces/omnidepth_ws/src/omnidepth_ros2/models/metric_3d.onnx"/>
-    <arg name="monodepth_gpu_index" default="0"/>
+    <arg name="omnidepth_flag" default="true"/>
+    <arg name="omnidepth_ckpt_file" default="/home/apoorv/workspaces/omnidepth_ws/src/omnidepth_ros2/models/omnidepth_v10.onnx"/>
+    <arg name="omnidepth_gpu_index" default="0"/>
     <arg name="cam_channel_name" default="front"/>
 
     <arg name="camera_topic" default="/front_stereo_camera/right/image_raw"/>
@@ -14,9 +14,9 @@
 
 
     <node pkg="omnidepth_ros2" exec="omnidepth_inference_node" name="omnidepth_inference" output="screen">
-        <param name="MONODEPTH_FLAG" value="$(var monodepth_flag)"/>
-        <param name="MONODEPTH_CKPT_FILE" value="$(var monodepth_ckpt_file)"/>
-        <param name="MONODEPTH_GPU_INDEX" value="$(var monodepth_gpu_index)"/>
+        <param name="OMNIDEPTH_FLAG" value="$(var omnidepth_flag)"/>
+        <param name="OMNIDEPTH_CKPT_FILE" value="$(var omnidepth_ckpt_file)"/>
+        <param name="OMNIDEPTH_GPU_INDEX" value="$(var omnidepth_gpu_index)"/>
         <param name="CAM_CHANNEL_NAME" value="$(var cam_channel_name)"/>
 
         <remap from="/image_raw" to="$(var camera_topic)"/>
