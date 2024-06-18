@@ -12,8 +12,11 @@ For local reproduction, USD file created on [ISAAC 4.0](https://developer.nvidia
 | Input Modality |            Input Visualization        |            Output Visualization           |
 |:--------------------------------------:|:--------------------------------------:|:--------------------------------------:|
 |Camera views| Multi-view monocular Images and Intrinsics/ Extrinsic Matrices | Class-aware 3D dense point cloud from surround view cameras |
-| Four Surround view cameras, covering 360 degree without overlap| ![scene](https://github.com/synapsemobility/omniViewDepth/assets/163760520/c8332d52-31ac-4aa6-ab8c-b21a2e9cf792) | ![OmniViewDepth](https://github.com/synapsemobility/omniViewDepth/assets/163760520/7a9fc687-e15d-4f4d-80a3-77e6a1e900ad) |
-|||||
+| Four Surround-view cameras, covering 360 degree without overlap| ![scene](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/scene.gif)| ![OmniDepth](https://github.com/synapsemobility/omnidepth_ros2/blob/main/visualizations/omniDepth.gif)|
+| Front view monocular camera | [Front scene]()| [Front point cloud]()|
+| Left view monocular camera | [Left scene]()| [Left point cloud]()|
+| Back view monocular camera | [Back scene]()| [Back point cloud]()|
+| Right view monocular camera | [Right scene]()| [Right point cloud]()|
 
 ## Docker Installation
 We are handing out the docker file and the model on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs.
