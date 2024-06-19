@@ -1,0 +1,3 @@
+onnxruntime-gpu
+numpy==1.24.1
+nuscenes-devkit
