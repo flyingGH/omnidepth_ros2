@@ -177,14 +177,30 @@ ros2 bag record -o omnidepth_usd_v1_rosbag \
 ## Relevant ROS2 Topics
 
 ### Subscribed Topics
-|            Topic Name           |            Topic Info           |     Description  | Visualization | 
-|:--------------------------------------:|:--------------------------------------:| :--------------------------------------:| :--------------------------------------:|
-| TODO | TODO |TODO | TODO | 
+|            Topic Name           |            Topic Info           |
+|:--------------------------------------:|:--------------------------------------:|
+| /front_stereo_camera/right/camera_info | sensor_msgs/msg/CameraInfo |
+| /front_stereo_camera/right/image_raw | sensor_msgs/msg/Image |
+| /back_stereo_camera/right/camera_info | sensor_msgs/msg/CameraInfo |
+| /back_stereo_camera/right/image_raw | sensor_msgs/msg/Image |
+| /left_stereo_camera/right/camera_info | sensor_msgs/msg/CameraInfo |
+| /left_stereo_camera/right/image_raw | sensor_msgs/msg/Image |
+| /right_stereo_camera/right/camera_info | sensor_msgs/msg/CameraInfo |
+| /right_stereo_camera/right/image_raw | sensor_msgs/msg/Image |
+
 
 ### Published Topics
-|            Topic Name           |            Topic Info           |     Description  | Visualization | 
-|:--------------------------------------:|:--------------------------------------:| :--------------------------------------:| :--------------------------------------:|
-| TODO | TODO |TODO | TODO | 
+|            Topic Name           |            Topic Info           |
+|:--------------------------------------:|:--------------------------------------:|
+| /point_cloud_front | sensor_msgs/msg/PointCloud2 |
+| /depth_image_front | sensor_msgs/msg/Image |
+| /point_cloud_back | sensor_msgs/msg/PointCloud2 |
+| /depth_image_back | sensor_msgs/msg/Image |
+| /point_cloud_left | sensor_msgs/msg/PointCloud2 |
+| /depth_image_left | sensor_msgs/msg/Image |
+| /point_cloud_right | sensor_msgs/msg/PointCloud2 |
+| /depth_image_right | sensor_msgs/msg/Image |
+
 
 # License
 The OmmniViewDepth code is under a 2-clause BSD License for non-commercial usage.
