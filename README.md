@@ -20,35 +20,41 @@ Our service can be easily integrated into any AMR robotics framework (Currently 
 
 
 # Instructions
-Please follow below steps to reproduce above visualizations locally. 
+Please follow below steps to reproduce above visualizations locally. First, you can clone this repository at your home location.
+```
+cd ~/
+git clone https://github.com/synapsemobility/omnidepth_ros2.git
+cd omnidepth_ros2/
+```
+
+## Download model
+We are handing out the the model checkpoint on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs. \\
+Place this model at the below location:
+```
+~/omnidepth_ros2
+```
 
 ## Build Docker Image
 First build a docker image. It builds a linux-based docker with ROS2 Humble with omniDepth dependencies. 
 ```
-docker build -t omnidepth_humble_image.
+docker build -t omnidepth_humble_image .
 ```
+
+Note: First time you run this, it may take some while as all the pip3 dependencies and ROS2 dependencies are being installed here!
 
 ## Run Docker Container
 It runs docker container with interactive terminal where you can run rviz2 from the docker container.
 ```
 ./run_docker.bash
 ```
-Note: For Debugging commands for docker, please refer to Troubleshoot section in this page. 
+Note: For Debugging commands for docker, please refer to Troubleshoot section at the end of this page. 
 
-
-## Copy Model Path
-We are handing out the the model checkpoint on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs.
-
-Replace `<local_model_path>` below with the downloaded model path. 
-Replace `<container_id>` below with the container id found using command `docker ps -a`
-```
-docker cp <local_model_path> <container_id>:/root/omnidepth_ws/src/omnidepth_ros2/models/
-```
+<!-- TODO: Have to do git pull? Why? -->
 
 ## Launch visualization
 Within docker terminal, go to workspace directory:
 ```
-/root/omnidepth_ws
+cd /root/omnidepth_ws
 ```
 Then, launch rviz2, with cached attributes to visualize
 ```
@@ -62,7 +68,7 @@ docker exec -it omnidepth_humble_image_container bash
 ```
 Then, go to the workspace directory: 
 ```
-/root/omnidepth_ws
+cd /root/omnidepth_ws
 ```
 Finally build the workspace
 ```
@@ -99,6 +105,7 @@ ros2 launch omnidepth_ros2 omnidepth_back.launch.xml
 ```
 
 ## Launch Scene
+To understand the scene first, please refer these [four images](https://github.com/synapsemobility/omnidepth_ros2/tree/main/visualizations/rosbag_scene). They give view of the test warehouse from different angles to get yourself familiarize with it. 
 There are two ways where you can launch the scene so that required topics can be subscribed:
 ### Option 1: Launch ROSBag
 1. Download ROSBag file from the [link](https://drive.google.com/file/d/1pFJr5HNQ8YixB9AHIeVBL4CRUS0oy5zV/view?usp=drive_link)
@@ -112,10 +119,27 @@ ros2 bag play omnidepth_usd_v1_rosbag/ -l
 ### Option 2: Play Isaac sim USD file
 1. Download USD file from the [drive link](https://drive.google.com/file/d/1CKsHDYRw4J_wQ6_jgNjwoaswgUvqomCb/view?usp=drive_link). Note, when opening this USD file first time, it can take upto 5mins for ISAAC sim to launch this USD file.  
 2. Open ISAAC simulator open USD file. (It may take upto 1min if you are launching this USD file the first time.)
-3. Play the animation using the play button on the right.
+3. Play the animation using the play button on the left pannel.
 
 Note: Latest Isaac sim version is recommended [ISAAC 4.0](https://developer.nvidia.com/blog/supercharge-robotics-workflows-with-ai-and-simulation-using-nvidia-isaac-sim-4-0-and-nvidia-isaac-lab/)
 
+
+### All Done!
+Now you can visualize point cloud on the rviz window. Feel free to move it around to see the depth information! \\
+You can also visualize monocular depth images by hitting checkbox on the left. 
+
+On the launch file termincal you should see something like below, which shows that point cloud meta info is logged: 
+```
+[omnidepth_inference_node-1] [INFO] [1718829469.171886841] [omnidepth_inference]: Model Done
+[omnidepth_inference_node-1] [INFO] [1718829469.172464220] [omnidepth_inference]: Initializing static memory...
+[omnidepth_inference_node-1] [INFO] [1718829469.175627241] [omnidepth_inference]: Initialization Done
+[omnidepth_inference_node-1] [INFO] [1718829526.909568003] [omnidepth_inference]: Total runtime: 1.404341220855713
+[omnidepth_inference_node-1] [INFO] [1718829529.333300118] [omnidepth_inference]: (249241, 6)
+[omnidepth_inference_node-1] [INFO] [1718829530.747238818] [omnidepth_inference]: Total runtime: 1.4040896892547607
+[omnidepth_inference_node-1] [INFO] [1718829533.224480874] [omnidepth_inference]: (240365, 6)
+[omnidepth_inference_node-1] [INFO] [1718829534.738286196] [omnidepth_inference]: Total runtime: 1.506906270980835
+...
+```
 
 # Appendix
 ## Rotation angle of the point cloud.
@@ -153,9 +177,13 @@ docker images
 docker rmi -f <Image ID>
 ```
 
-Remove containters
+List installed containters
 ```
 docker ps -a
+```
+
+Remove all containers
+```
 docker rm -v -f $(docker ps -qa)
 ```
 
