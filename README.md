@@ -7,7 +7,6 @@ Our service can be easily integrated into any AMR robotics framework (Currently 
 * [Demo Video: omniDepth for AMRs](https://www.youtube.com/watch?v=T_HIsUSDyoQ&ab_channel=SynapseMobility)
 
 ## Visualizations
-For reproducing locally, the USD file created on [ISAAC 4.0](https://developer.nvidia.com/blog/supercharge-robotics-workflows-with-ai-and-simulation-using-nvidia-isaac-sim-4-0-and-nvidia-isaac-lab/) can be downloaded from [drive link](https://drive.google.com/file/d/1CKsHDYRw4J_wQ6_jgNjwoaswgUvqomCb/view?usp=drive_link).
 
 | Input Modality |            Input Visualization        |            Output Visualization           |
 |:--------------------------------------:|:--------------------------------------:|:--------------------------------------:|
@@ -27,7 +26,6 @@ Please follow below steps to reproduce above visualizations locally.
 First build a docker image. It builds a linux-based docker with ROS2 Humble with omniDepth dependencies. 
 ```
 docker build -t omnidepth_humble_image.
-
 ```
 
 ## Run Docker Container
@@ -75,7 +73,7 @@ source install/setup.bash
 ## Launch omniDepth
 From the same terminal above, launch omniDepth using front launchfile
 ```
-ros2 launch omnidepth_ros2 docker_omnidepth_front.launch.xml
+ros2 launch omnidepth_ros2 omnidepth_front.launch.xml
 ```
 
 ### Optionally: For other cameras, run below commands for each camera
@@ -95,22 +93,28 @@ source install/setup.bash
 Each command below launches omniDepth on one monocular camera each at a time. \\
 If entire 360 degree PCL is required, all the commands needs to be launched on a separate terminal each, following all the steps in this section from start. 
 ```
-ros2 launch omnidepth_ros2 docker_omnidepth_right.launch.xml
-ros2 launch omnidepth_ros2 docker_omnidepth_left.launch.xml
-ros2 launch omnidepth_ros2 docker_omnidepth_back.launch.xml
+ros2 launch omnidepth_ros2 omnidepth_right.launch.xml
+ros2 launch omnidepth_ros2 omnidepth_left.launch.xml
+ros2 launch omnidepth_ros2 omnidepth_back.launch.xml
 ```
 
-
-## Launch topics
+## Launch Scene
+There are two ways where you can launch the scene so that required topics can be subscribed:
 ### Option 1: Launch ROSBag
-TODO
+1. Download ROSBag file from the [link](https://drive.google.com/file/d/1pFJr5HNQ8YixB9AHIeVBL4CRUS0oy5zV/view?usp=drive_link)
+2. Go to the directory location of the zip file.
+3. Extract the file into a direcotry named `omnidepth_usd_v1_rosbag`, i.e. the Default name.
+4. Finally, launch ROS bag file in loop with: 
+```
+ros2 bag play omnidepth_usd_v1_rosbag/ -l
+```
 
 ### Option 2: Play Isaac sim USD file
 1. Download USD file from the [drive link](https://drive.google.com/file/d/1CKsHDYRw4J_wQ6_jgNjwoaswgUvqomCb/view?usp=drive_link). Note, when opening this USD file first time, it can take upto 5mins for ISAAC sim to launch this USD file.  
 2. Open ISAAC simulator open USD file. (It may take upto 1min if you are launching this USD file the first time.)
-3. Play the animation using play button on the right.
+3. Play the animation using the play button on the right.
 
-Note: Latest Isaac sim version is recommended (Isaac 4.0.0)
+Note: Latest Isaac sim version is recommended [ISAAC 4.0](https://developer.nvidia.com/blog/supercharge-robotics-workflows-with-ai-and-simulation-using-nvidia-isaac-sim-4-0-and-nvidia-isaac-lab/)
 
 
 # Appendix
@@ -153,6 +157,21 @@ Remove containters
 ```
 docker ps -a
 docker rm -v -f $(docker ps -qa)
+```
+
+## Record rosbag from USD file 
+For quick experiments, you may chose to store your own rosbag file for the given USD file. 
+
+```
+ros2 bag record -o omnidepth_usd_v1_rosbag \
+    /front_stereo_camera/right/image_raw \
+    /front_stereo_camera/right/camera_info \
+    /left_stereo_camera/right/image_raw \
+    /left_stereo_camera/right/camera_info \
+    /right_stereo_camera/right/image_raw \
+    /right_stereo_camera/right/camera_info \
+    /back_stereo_camera/right/image_raw \
+    /back_stereo_camera/right/camera_info
 ```
 
 ## Relevant ROS2 Topics

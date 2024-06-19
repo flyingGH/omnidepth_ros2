@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="omnidepth_flag" default="true"/>
-    <arg name="omnidepth_ckpt_file" default="/home/apoorv/workspaces/omnidepth_ws/src/omnidepth_ros2/models/omnidepth_v10.onnx"/>
+    <arg name="omnidepth_ckpt_file" default="/root/omnidepth_ws/src/omnidepth_ros2/models/omnidepth_v10.onnx"/>
     <arg name="omnidepth_gpu_index" default="0"/>
     <arg name="cam_channel_name" default="left"/>
 
     <arg name="camera_topic" default="/left_stereo_camera/right/image_raw"/>
-    <arg name="compressed_image_topic" default="/image_raw/compressed"/>
     <arg name="camera_param" default="/left_stereo_camera/right/camera_info"/>
-    <arg name="output_bbox_topic" default="/bboxes"/>
     <arg name="output_seg_pointcloud_topic" default="/point_cloud_left"/>
     <arg name="output_depth_image_topic" default="/depth_image_left"/>
-
 
     <node pkg="omnidepth_ros2" exec="omnidepth_inference_node" name="omnidepth_inference" output="screen">
         <param name="OMNIDEPTH_FLAG" value="$(var omnidepth_flag)"/>
@@ -20,9 +17,7 @@
         <param name="CAM_CHANNEL_NAME" value="$(var cam_channel_name)"/>
 
         <remap from="/image_raw" to="$(var camera_topic)"/>
-        <remap from="/compressed_image" to="$(var compressed_image_topic)"/>
         <remap from="/camera_info" to="$(var camera_param)"/>
-        <remap from="/bboxes" to="$(var output_bbox_topic)"/>
         <remap from="/point_cloud" to="$(var output_seg_pointcloud_topic)"/>
         <remap from="/depth_image" to="$(var output_depth_image_topic)"/>
     </node>
