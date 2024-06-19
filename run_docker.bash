@@ -11,7 +11,7 @@ docker run --rm -it \
     --volume="$XAUTH:$XAUTH" \
     --privileged \
     --runtime=nvidia \
-    omnidepth_humble_image_v1 \
+    omnidepth_humble_image \
     bash
 
 echo "Done."

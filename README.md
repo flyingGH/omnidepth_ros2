@@ -49,7 +49,11 @@ It runs docker container with interactive terminal where you can run rviz2 from 
 ```
 Note: For Debugging commands for docker, please refer to Troubleshoot section at the end of this page. 
 
-<!-- TODO: Have to do git pull? Why? -->
+## Pull latest changes
+```
+cd /root/omnidepth_ws/src/omnidepth_ros2/
+git pull
+```
 
 ## Launch visualization
 Within docker terminal, go to workspace directory:
