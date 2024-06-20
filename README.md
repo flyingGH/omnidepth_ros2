@@ -29,9 +29,9 @@ cd omnidepth_ros2/
 
 ## Download model
 We are handing out the the model checkpoint on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs. \
-Place this model at the below location:
+Place this model at the below directory location:
 ```
-~/omnidepth_ros2
+~/omnidepth_ros2/
 ```
 
 ## Build Docker Image
@@ -66,7 +66,7 @@ rviz2 -d src/omnidepth_ros2/rviz_omnidepth.rviz
 ```
 
 ## Build omniDepth
-Create new terminal and attach it to the container
+Leave above command running and create a new terminal and attach it to the container
 ```
 docker exec -it omnidepth_humble_image_container bash
 ```
@@ -77,6 +77,7 @@ cd /root/omnidepth_ws
 Finally build the workspace
 ```
 colcon build --symlink-install
+source /opt/ros/humble/setup.bash
 source install/setup.bash
 ```
 
@@ -94,10 +95,11 @@ docker exec -it omnidepth_humble_image_container bash
 ```
 Then, go to the workspace directory: 
 ```
-/root/omnidepth_ws
+cd /root/omnidepth_ws
 ```
 Source setup file
 ```
+source /opt/ros/humble/setup.bash
 source install/setup.bash
 ```
 Each command below launches omniDepth on one monocular camera each at a time. \\
