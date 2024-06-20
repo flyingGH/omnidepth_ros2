@@ -20,7 +20,11 @@ Our service can be easily integrated into any AMR robotics framework (Currently 
 
 
 # Instructions
-Please follow below steps to reproduce above visualizations locally. First, you can clone this repository at your home location.
+Please follow below steps to reproduce above visualizations locally. 
+
+First of all, since we use docker to make our lives easier in terms of dependency management, you'd need to install one single easy dependency: `Docker`. Please follow steps [here](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) from the official Docker documentation to install docker on your Ubuntu w/ GPU maching. There are multiple ways docker can be installed, but above link will take you to the simplest 3-step approach to `Install using the apt repository`.
+
+Then, you can clone this repository at your home location.
 ```
 cd ~/
 git clone https://github.com/synapsemobility/omnidepth_ros2.git
