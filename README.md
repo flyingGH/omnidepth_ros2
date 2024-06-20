@@ -1,6 +1,6 @@
 
 # omniDepth ROS2
-An AI Framework for class-aware surround BEV 3D occupancy map with multi-view monocular cameras. It enables low-cost, precise, camera-only perception for autonomous mobile robots with surround-view cameras.
+An AI Framework for class-aware surround BEV 3D occupancy map with multi-view monocular cameras. It enables low-cost, precise, camera-only perception for autonomous mobile robots with surround-view cameras with fast multi-threading inferencing capabilities.
 Our service can be easily integrated into any AMR robotics framework (Currently supported: ROS2 Humble). 
 
 * [Model request form](https://forms.gle/2JLW8mkCmrBkLmZw8): Model is only available on request basis. We have a US-based small team, we can get back in 24 hours.
@@ -28,7 +28,7 @@ cd omnidepth_ros2/
 ```
 
 ## Download model
-We are handing out the the model checkpoint on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs. \\
+We are handing out the the model checkpoint on a per-request basis. If you want to deploy it on your robot please fill out this [form](https://forms.gle/2JLW8mkCmrBkLmZw8), and we can get back to you within 24hrs. \
 Place this model at the below location:
 ```
 ~/omnidepth_ros2

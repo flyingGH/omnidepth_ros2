@@ -6,7 +6,7 @@ RUN apt-get install -y git && apt-get install -y python3-pip
 
 RUN mkdir -p ~/omnidepth_ws/src && \
     cd ~/omnidepth_ws/src/ && \
-    git clone git@github.com:synapsemobility/omnidepth_ros2.git
+    git clone https://github.com/synapsemobility/omnidepth_ros2.git
 
 COPY ./requirements.txt .
 RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
